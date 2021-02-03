@@ -1,0 +1,74 @@
+3 types of constructors:
+1.default
+2.non parameterized
+3.parameterized
+
+
+Inheritance:
+1. If 0 constructors are written in a class then default constructors are provided
+2. In every constructor (default/NPC/PC) implicit call to NPC of parent class is made
+3. If NPC/PC is declared by us, default constructor is not provided by the compiler
+4. If only PC in parent , PC in child 
+     --> in child class implicit call to NPC will happen leading to compilation error
+     --> to resolve this, either NPC in parent class must be declared or explicit call to any other constructor must be done
+5. Super keyword is used to make the explicit call to parent class constructor. Implicit call to NPC is equivalent to super()
+6. Super keyword must be the first line in the constructor, otherwise leads to compilation error
+
+7. Non private instance variables and methods are inherited in the child class and can be accessed as if they are present in the same class
+8. Parent class public instance variable can be accessed in the child class directly --> this.<instance var name>
+9. Parent class public method which is present only in parent class --> this.<method_name>
+10. Private instance variables --> use the getter methods to fetch the data inside the child class
+
+------------------------------------------------------
+POLYMORPHISM:
+is the ability to take up different forms or perform multiple functionalities 
+
+static polymorphism -- compile time -- method overloading
+dynamic polymorphism -- runtime -- method overriding
+
+Method overloading -->
+allows us to create multiple methods with same name in the same class but differing in their signature
+
+1. Number of parameters
+2. Data type of parameters
+3. Order of the parameters 
+
+which method to invoke --> that binding is done during compile time
+
+
+static methods can be overload 
+main method can also be overloaded
+
+-------------------------------------------------------
+type promotion:
+
+promotes the lower range value to a higher range
+
+It happens only when the methods of same type is not found
+Otherwise no need for type promotion
+
+only widening will happen.
+
+byte can be promoted to <byte - short - int - long - float - double>.
+short can be promoted to <short - int - long - float - double>.
+int can be promoted to <int - long - float - double>.
+long can be promoted to <long - float - double>.
+char can be promoted to <char - int - long - float - double>.
+float can be promoted to <float - double>.
+
+
+1. if matching types are present --> no auto promotion
+2. It will try to do widening conversion --> if possible
+3. Narrowing down will not happen
+
+-------------------------------------------------------
+
+Method overloading
+Type promotion
+COnstructor overloading
+
+
+
+
+
+

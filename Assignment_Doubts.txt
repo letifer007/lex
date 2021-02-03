@@ -1,0 +1,273 @@
+array assign3
+
+class Tester {
+
+	 public static int[] findLeapYears(int year){
+		//Implement your code here and change the return value accordingly
+		 int count = 0;
+			int[] arrayOfLeapYears = new int[15];
+			while (count < 15) {
+				if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
+					arrayOfLeapYears[count] = year;
+					count += 1;
+				}
+				if (count == 15)
+					break;
+				year += 1;
+			}
+			return arrayOfLeapYears;
+	  }
+	    
+	   public static void main(String[] args) {
+	       int year = 2000;
+		   int[] leapYears;
+		   leapYears=findLeapYears(year);
+		   for ( int index = 0; index<leapYears.length; index++ ) {
+		       System.out.println(leapYears[index]);
+		   }
+	    }
+}
+
+
+----------------------------------------------------------------------------------------------
+
+array assign 4
+
+ class Tester {
+	
+	public static int[] findNumbers(int num1, int num2) {
+		int[] numbers = new int[6];
+
+		// Implement your code here
+
+		if (num1 < num2) {
+			int index = 0;
+			for (int i = num1; i < num2 + 1; i++) {
+				int num = i;
+				int temp = num;
+				int total = 0, rem = 0;
+				while (num > 0) {
+					rem = num % 10;
+					total += rem;
+					num = (int) (num / 10);
+				}
+				if (total % 3 == 0) {
+					if (temp > 9 && temp < 99) {
+						if (temp % 5 == 0) {
+							numbers[index] = temp;
+							index += 1;
+						}
+					}
+				}
+			}
+		}
+		return numbers;
+	}
+
+	public static void main(String[] args) {
+		int num1 = 10;
+		int num2 = 30;
+
+		int[] numbers = findNumbers(num1, num2);
+		if (numbers[0] == 0) {
+			System.out.println("There is no such number!");
+		} else {
+			for (int index = 0; index <= numbers.length - 1; index++) {
+				if (numbers[index] == 0) {
+					break;
+				}
+				System.out.println(numbers[index]);
+			}
+		}
+
+	}
+
+}
+
+
+---------------------------------------------------------------------------------------
+
+
+string assgn 3
+
+
+class Tester {
+
+	public static String reverseEachWord(String str) {
+		// Implement your code here and change the return value accordingly
+		String[] words = str.split(" ");
+		String newString = "";
+		for (int i = 0; i < words.length; i++) {
+			String reversedString = "";
+			str = words[i];
+			for (int j = str.length() - 1; j >= 0; j--) {
+				reversedString += str.charAt(j);
+			}
+			newString += reversedString + " ";
+		}
+		return newString.substring(0, newString.length() - 1);
+	}
+
+	public static void main(String args[]) {
+		String str = "all cows eat grass";
+		System.out.println(reverseEachWord(str));
+	}
+
+}
+
+
+--------------------------------------------------------------------------------------
+
+
+static assign 2
+
+
+class Participant {
+	
+	 //Implement your code here
+	private static int counter;
+	private String registrationId;
+	private String name;
+	private long contactNumber;
+	private String city;
+	
+	static {
+		counter = 10000;
+	}
+	
+	public Participant(String name, long contactNumber, String city) {
+		this.name = name;
+		this.contactNumber = contactNumber;
+		this.city = city;
+		++Participant.counter;
+		this.registrationId = "D"+Participant.counter;
+	}
+
+	public String getRegistrationId() {
+		return registrationId;
+	}
+	public static int getCounter() {
+		return counter;
+	}
+	public static void setCounter(int counter) {
+		Participant.counter = counter;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public long getContactNumber() {
+		return contactNumber;
+	}
+	public void setContactNumber(long contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+}
+
+
+class Tester {
+	
+	public static void main(String[] args) {
+		
+		Participant participant1 = new Participant("Franklin", 7656784323L, "Texas");
+		Participant participant2 = new Participant("Merina", 7890423112L, "New York");
+		
+		//Create more objects and add them to the participants array for testing your code
+		
+		Participant[] participants = { participant1, participant2 };
+		
+		for (Participant participant : participants) {
+			System.out.println("Hi "+participant.getName()+"! Your registration id is "+participant.getRegistrationId());
+		}
+
+	}
+
+}
+
+
+--------------------------------------------------------------------------------------------
+
+static assign 3
+
+class Booking {
+	 //Implement your code here
+	private String customerEmail;
+	private int seatsRequired;
+	private boolean isBooked;
+	private static int seatsAvailable;
+	
+	static {
+		seatsAvailable = 400;
+	}
+	
+	public Booking(String customerEmail, int seatsRequired) {
+		this.customerEmail = customerEmail;
+		this.seatsRequired = seatsRequired;
+		if(this.seatsRequired<=Booking.seatsAvailable) {
+			Booking.seatsAvailable -= this.seatsRequired;
+			this.setBooked(true);
+		}
+		else {
+			this.setBooked(false);
+		}
+	}
+	
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+	public int getSeatsRequired() {
+		return seatsRequired;
+	}
+	public void setSeatsRequired(int seatsRequired) {
+		this.seatsRequired = seatsRequired;
+	}
+	public boolean isBooked() {
+		return isBooked;
+	}
+	public void setBooked(boolean isBooked) {
+		this.isBooked = isBooked;
+	}
+	public static int getSeatsAvailable() {
+		return seatsAvailable;
+	}
+	public static void setSeatsAvailable(int seatsAvailable) {
+		Booking.seatsAvailable = seatsAvailable;
+	}
+}
+
+
+class Tester {
+	
+	 public static void main(String[] args) {
+	        Booking booking1 = new Booking("jack@email.com", 100);
+	        Booking booking2 = new Booking("jill@email.com", 350);
+
+	        //Create more objects and add them to the bookings array for testing your code
+	        
+	        Booking[] bookings = { booking1, booking2 };
+	              
+	        for (Booking booking : bookings) {
+	            if (booking.isBooked()) {
+	                System.out.println(booking.getSeatsRequired()+" seats successfully booked for "+booking.getCustomerEmail());
+	            }
+	            else {
+	                System.out.println("Sorry "+booking.getCustomerEmail()+", required number of seats are not available!");
+	                System.out.println("Seats available: "+Booking.getSeatsAvailable());
+	            }
+	         }
+	    }
+
+}
+
+----------------------------------------------------------------------------------------
